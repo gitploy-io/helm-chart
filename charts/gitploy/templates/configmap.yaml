@@ -6,6 +6,8 @@ metadata:
 {{ include "gitploy.labels" . | indent 4 }}
 data:
 {{- range $envKey, $envVal := .Values.env }}
+  {{- if $envVal }}
   {{ $envKey | upper }}: {{ $envVal | quote }}
+  {{- end }}
 {{- end }}
   

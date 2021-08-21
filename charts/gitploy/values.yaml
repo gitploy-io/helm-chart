@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: gitployio/gitploy
-  tag: "0.1.0"
+  tag: "0.1.0-alpha1"
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -52,18 +52,24 @@ env:
   #
   GITPLOY_SERVER_PROTO: https
 
-
-  # Slack-specific variables.
+  # REQUIRED: Identity users as admin.
   #
-  GITPLOY_SLACK_CHANNEL: ""
-  GITPLOY_SLACK_CLIENT_ID: ""
-  GITPLOY_SLACK_CLIENT_SECRET: ""
+  GITPLOY_ADMIN_USERS: ""
+
+  # Github-specific variables.
+  #
+  # REQUIRED: Github oAuth client id.
+  #
+  GITPLOY_GITHUB_CLIENT_ID: ""
+  # REQUIRED: Github oAuth client secret.
+  #
+  GITPLOY_GITHUB_CLIENT_SECRET: ""
 
   # DB-specific vairables.
   # If you are using SQLite as your DB for Gitploy, it is recommended to enable persistence.
   #
-  # GITPLOY_STORE_DRIVER: ""
-  # GITPLOY_STORE_SOURCE: ""
+  # GITPLOY_STORE_DRIVER: "/data/sqlite3.db?cache=shared&_fk=1"
+  # GITPLOY_STORE_SOURCE: "sqlite3"
 
 # If you'd like to provide your own Kubernetes Secret object instead of passing your values
 # in un-encrypted, pass in the name of a created + populated Secret in the same Namespace
@@ -73,7 +79,7 @@ extraSecretNamesForEnvFrom: []
 
 persistentVolume:
   # If you are using SQLite as your DB for Gitploy, it is recommended to enable persistence. 
-  enabled: true
+  enabled: false
 
   accessModes:
     - ReadWriteOnce

@@ -17,11 +17,18 @@ env:
   #
   GITPLOY_SERVER_PROTO: https
 
-  # Slack-specific variables.
+  # REQUIRED: Identity users as admin.
   #
-  GITPLOY_SLACK_CHANNEL:
-  GITPLOY_SLACK_CLIENT_ID:
-  GITPLOY_SLACK_CLIENT_SECRET:
+  GITPLOY_ADMIN_USERS: ""
+
+  # Github-specific variables.
+  #
+  # REQUIRED: Github oAuth client id.
+  #
+  GITPLOY_GITHUB_CLIENT_ID: ""
+  # REQUIRED: Github oAuth client secret.
+  #
+  GITPLOY_GITHUB_CLIENT_SECRET: ""
 ```
 
 Copy these into a new file, which we'll call `values.overrides.yaml`. Adjust the included defaults to reflect your environment.
