@@ -68,8 +68,8 @@ env:
   # DB-specific vairables.
   # If you are using SQLite as your DB for Gitploy, it is recommended to enable persistence.
   #
-  # GITPLOY_STORE_DRIVER: "/data/sqlite3.db?cache=shared&_fk=1"
-  # GITPLOY_STORE_SOURCE: "sqlite3"
+  # GITPLOY_STORE_DRIVER: "sqlite3"
+  # GITPLOY_STORE_SOURCE: "/data/sqlite3.db?cache=shared&_fk=1"
 
 # If you'd like to provide your own Kubernetes Secret object instead of passing your values
 # in un-encrypted, pass in the name of a created + populated Secret in the same Namespace
