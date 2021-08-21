@@ -1,0 +1,103 @@
+# Default values for Gitploy.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: gitployio/gitploy
+  tag: "0.1.0"
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podSecurityContext: {}
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths: []
+
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# The keys within the "env" map are mounted as environment variables. 
+# See the full reference of Gitploy environment variables here:
+#
+env:
+  # REQUIRED: Set the user-visible hostname.
+  #
+  GITPLOY_SERVER_HOST: ""
+  # REQUIRED: The protocol to pair with the value in GITPLOY_SERVER_HOST (http or https).
+  #
+  GITPLOY_SERVER_PROTO: https
+
+
+  # Slack-specific variables.
+  #
+  GITPLOY_SLACK_CHANNEL: ""
+  GITPLOY_SLACK_CLIENT_ID: ""
+  GITPLOY_SLACK_CLIENT_SECRET: ""
+
+  # DB-specific vairables.
+  # If you are using SQLite as your DB for Gitploy, it is recommended to enable persistence.
+  #
+  # GITPLOY_STORE_DRIVER: ""
+  # GITPLOY_STORE_SOURCE: ""
+
+# If you'd like to provide your own Kubernetes Secret object instead of passing your values
+# in un-encrypted, pass in the name of a created + populated Secret in the same Namespace
+# as the server.
+extraSecretNamesForEnvFrom: []
+# - gitploy-secret
+
+persistentVolume:
+  # If you are using SQLite as your DB for Gitploy, it is recommended to enable persistence. 
+  enabled: true
+
+  accessModes:
+    - ReadWriteOnce
+
+  annotations: {}
+
+  existingClaim: ""
+
+  mountPath: /data
+
+  size: 8Gi
+
+  storageClass: ""
+
+  # If empty (the default) or set to null, no volumeBindingMode spec is
+  # set, choosing the default mode.
+  #
+  volumeMode: ""
+
+  subPath: ""
+
+# If persistentVolume.enabled is set to false, it will mount an emptyDir instead of
+# a PVC for any state that it needs to persist.
+#
+emptyDir:
+  # Total space to request for the emptyDir. An empty value here means no limit.
+  sizeLimit: ""

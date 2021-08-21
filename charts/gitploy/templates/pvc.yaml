@@ -1,0 +1,31 @@
+
+{{- if .Values.persistentVolume.enabled -}}
+{{- if not .Values.persistentVolume.existingClaim -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "gitploy.fullname" . }}
+  labels:
+{{ include "gitploy.labels" . | indent 4 }}
+  {{- if .Values.persistentVolume.annotations }}
+  annotations:
+{{ toYaml .Values.persistentVolume.annotations | indent 4 }}
+  {{- end }}
+spec:
+  accessModes:
+{{ toYaml .Values.persistentVolume.accessModes | indent 4 }}
+{{- if .Values.persistentVolume.storageClass }}
+{{- if (eq "-" .Values.persistentVolume.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.persistentVolume.storageClass }}"
+{{- end }}
+{{- end }}
+{{- if .Values.persistentVolume.volumeMode }}
+  volumeMode: "{{ .Values.persistentVolume.volumeMode }}"
+{{- end }}
+  resources:
+    requests:
+      storage: "{{ .Values.persistentVolume.size }}"
+{{- end -}}
+{{- end -}}

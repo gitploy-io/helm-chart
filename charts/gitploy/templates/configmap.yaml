@@ -1,0 +1,11 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ include "gitploy.fullname" . }}
+  labels:
+{{ include "gitploy.labels" . | indent 4 }}
+data:
+{{- range $envKey, $envVal := .Values.env }}
+  {{ $envKey | upper }}: {{ $envVal | quote }}
+{{- end }}
+  
