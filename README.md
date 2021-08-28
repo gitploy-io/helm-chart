@@ -11,7 +11,7 @@ Read and follow the Helm installation guide.
 In order to be able to use the charts in this repository, add the name and URL to your Helm client:
 
 ```console
-helm repo add gitployio https:// gitploy-io.github.io/helm-chart/
+helm repo add gitployio https://gitploy-io.github.io/helm-chart/
 helm repo update
 ```
 
