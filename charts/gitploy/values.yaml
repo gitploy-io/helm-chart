@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: gitployio/gitploy
-  tag: "0.1.0-alpha1"
+  tag: "0.2.0-alpha3"
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
