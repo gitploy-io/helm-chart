@@ -11,8 +11,8 @@ Read and follow the Helm installation guide.
 In order to be able to use the charts in this repository, add the name and URL to your Helm client:
 
 ```console
-$ helm repo add gitployio https://gitploy.io/helm-charts/
-$ helm repo update
+helm repo add gitployio https://gitploy-io.github.io/helm-chart/
+helm repo update
 ```
 
 ## Installing Gitploy
@@ -27,9 +27,9 @@ To adjust an existing Gitploy install's configuration:
 
 ```console
 # If you have a values file:
-$ helm upgrade gitploy gitployio/gitploy --namespace gitploy --values values.overrides.yaml
+helm upgrade gitploy gitployio/gitploy --namespace gitploy --values values.overrides.yaml
 # If you want to change one value and don't have a values file:
-$ helm upgrade gitploy gitployio/gitploy --namespace gitploy --reuse-values --set someKey=someVal
+helm upgrade gitploy gitployio/gitploy --namespace gitploy --reuse-values --set someKey=someVal
 ```
 
 ## Upgrading Gitploy
@@ -39,8 +39,8 @@ Read the release notes to make sure there are no backwards incompatible changes.
 
 ```console
 # This pulls the latest version of the gitploy chart from the repo.
-$ helm repo update
-$ helm upgrade gitploy gitployio/gitploy --namespace gitploy --values values.overrides.yaml
+helm repo update
+helm upgrade gitploy gitployio/gitploy --namespace gitploy --values values.overrides.yaml
 ```
 
 ## Uninstalling Gitploy
@@ -48,7 +48,7 @@ $ helm upgrade gitploy gitployio/gitploy --namespace gitploy --values values.ove
 To uninstall/delete the `gitploy` deployment in the `gitploy` namespace:
 
 ```console
-$ helm delete gitploy --namespace gitploy
+helm delete gitploy --namespace gitploy
 ```
 
 ## Documentation
