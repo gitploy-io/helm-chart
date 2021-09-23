@@ -3,9 +3,9 @@ entries:
   gitploy:
   - apiVersion: v1
     appVersion: "0.3"
-    created: "2021-09-23T12:40:36.913154745Z"
+    created: "2021-09-23T12:44:32.849776916Z"
     description: A Helm chart for Gitploy
-    digest: f3258aada26a9be03695a8879163699b247494d516c5d923bdf45f79f49cfae3
+    digest: 7ae7fc152b1505752cdc9cc07d5b21a2d67d5b546d549b92b9b6037158281666
     name: gitploy
     urls:
     - https://gitploy-io.github.io/helm-chart/gitploy-0.1.2.tgz
@@ -28,4 +28,4 @@ entries:
     urls:
     - https://gitploy-io.github.io/helm-chart/gitploy-0.1.0.tgz
     version: 0.1.0
-generated: "2021-09-23T12:40:36.912450835Z"
+generated: "2021-09-23T12:44:32.849075603Z"
