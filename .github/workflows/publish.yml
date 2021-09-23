@@ -1,14 +1,16 @@
 name: release
 on:
-  push:
-    tags: '*'
+  deployment
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    if: ${{ github.event.deployment.environment == 'production' }}
     steps:
-      - uses: actions/checkout@v2
-      - name: Publish Helm charts
+      - 
+        uses: actions/checkout@v2
+      - 
+        name: Publish Helm charts
         uses: stefanprodan/helm-gh-pages@master
         with:
           token: ${{ secrets.DEPLOY_TOKEN }}
