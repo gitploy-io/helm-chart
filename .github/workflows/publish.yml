@@ -10,6 +10,14 @@ jobs:
       - 
         uses: actions/checkout@v2
       - 
+        name: Start to publish
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          deployment_id: ${{ github.event.deployment.id }}
+          description: Start to publish Helm charts.
+          state: "in_progress"
+          token: "${{ github.token }}"
+      - 
         name: Publish Helm charts
         uses: stefanprodan/helm-gh-pages@master
         with:
