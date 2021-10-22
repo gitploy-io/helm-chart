@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: gitployio/gitploy
-  tag: "0.1"
+  tag: "0.2"
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -52,10 +52,6 @@ env:
   #
   GITPLOY_SERVER_PROTO: https
 
-  # REQUIRED: Identity users as admin.
-  #
-  GITPLOY_ADMIN_USERS: ""
-
   # Github-specific variables.
   #
   # REQUIRED: Github oAuth client id.
@@ -70,6 +66,14 @@ env:
   #
   # GITPLOY_STORE_DRIVER: "sqlite3"
   # GITPLOY_STORE_SOURCE: "/data/sqlite3.db?cache=shared&_fk=1"
+
+  # Optional: Ensure the server is only receiving the expected GitHub request.
+  #
+  # GITPLOY_WEBHOOK_SECRET: ""
+
+  # OPTIONAL: Identity users as admin.
+  #
+  # GITPLOY_ADMIN_USERS: ""
 
 # If you'd like to provide your own Kubernetes Secret object instead of passing your values
 # in un-encrypted, pass in the name of a created + populated Secret in the same Namespace
