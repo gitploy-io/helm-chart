@@ -3,9 +3,9 @@ entries:
   gitploy:
   - apiVersion: v1
     appVersion: 0.4.1
-    created: "2021-11-23T13:40:26.391098772Z"
+    created: "2021-12-30T01:22:06.198645475Z"
     description: A Helm chart for Gitploy
-    digest: b0bcdddba71c288562f041e63b7f35c464f1189faaa9239cf4bead6009cd6e99
+    digest: e71ad7fdca33d7682f88243013e776b28ca2f1dee999ca62b36adc1b721054d3
     name: gitploy
     urls:
     - https://gitploy-io.github.io/helm-chart/gitploy-0.1.5.tgz
@@ -55,4 +55,15 @@ entries:
     urls:
     - https://gitploy-io.github.io/helm-chart/gitploy-0.1.0.tgz
     version: 0.1.0
-generated: "2021-11-23T13:40:26.390392263Z"
+  spinnaker-demo:
+  - apiVersion: v2
+    appVersion: "1.20"
+    created: "2021-12-30T01:22:06.198998801Z"
+    description: The Helm chart for Spinnaker demo.
+    digest: b4bf10af5dcf17e43d9d9fb754dd7a923f8b96f6b773052229d4c816b455bd7b
+    name: spinnaker-demo
+    type: application
+    urls:
+    - https://gitploy-io.github.io/helm-chart/spinnaker-demo-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-12-30T01:22:06.197766608Z"
