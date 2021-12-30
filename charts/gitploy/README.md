@@ -55,3 +55,23 @@ $ kubectl --namespace gitploy get pods
 NAME                                 READY   STATUS    RESTARTS   AGE
 gitploy-76d6bb8968-3d5n9               1/1     Running   0          2m
 ```
+
+## Upgrading Gitploy
+
+Read the release notes to make sure there are no backward incompatible changes. Make adjustments to your values as needed, then run `helm upgrade`.
+
+
+```console
+# This pulls the latest version of the gitploy chart from the repo.
+helm repo update
+helm upgrade gitploy gitployio/gitploy --namespace gitploy --values values.overrides.yaml
+```
+
+## Uninstalling Gitploy
+
+To uninstall/delete the `gitploy` deployment in the `gitploy` namespace:
+
+```console
+helm delete gitploy --namespace gitploy
+```
+
