@@ -1,6 +1,6 @@
 apiVersion: v2
-name: spinnaker-demo
-description: The Helm chart for Spinnaker demo.
+name: demo
+description: The Helm chart for demo.
 
 # A chart can be either an 'application' or a 'library' chart.
 #
