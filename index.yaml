@@ -1,11 +1,22 @@
 apiVersion: v1
 entries:
+  demo:
+  - apiVersion: v2
+    appVersion: "1.20"
+    created: "2022-02-22T13:03:36.393255628Z"
+    description: The Helm chart for demo.
+    digest: 2debe6b10f7acdf53f0302e429dace30a5abee3cfb6a659f75510791eac78409
+    name: demo
+    type: application
+    urls:
+    - https://gitploy-io.github.io/helm-chart/demo-0.1.0.tgz
+    version: 0.1.0
   gitploy:
   - apiVersion: v1
     appVersion: 0.5.0
-    created: "2022-02-22T13:01:57.131132567Z"
+    created: "2022-02-22T13:03:36.393742637Z"
     description: A Helm chart for Gitploy
-    digest: d0141a778588b0f545627fbc8ecec6477179cf9f550becb780c1e540a6cc63ff
+    digest: d8d3ae23f2bde211c569f0cb9e7def8cfa11ca03efe2868e1777ff15b9877ab8
     name: gitploy
     urls:
     - https://gitploy-io.github.io/helm-chart/gitploy-0.2.0.tgz
@@ -84,4 +95,4 @@ entries:
     urls:
     - https://gitploy-io.github.io/helm-chart/spinnaker-demo-0.1.0.tgz
     version: 0.1.0
-generated: "2022-02-22T13:01:57.129981746Z"
+generated: "2022-02-22T13:03:36.392832719Z"
