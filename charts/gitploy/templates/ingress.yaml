@@ -1,14 +1,8 @@
-{{- if .Values.ingress.enabled -}}
-{{- $fullName := include "gitploy.fullname" . -}}
-{{- $svcPort := .Values.service.port -}}
-{{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
-apiVersion: networking.k8s.io/v1beta1
-{{- else -}}
-apiVersion: extensions/v1beta1
-{{- end }}
+{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: {{ include "gitploy.fullname" . }}
   labels:
 {{ include "gitploy.labels" . | indent 4 }}
   {{- with .Values.ingress.annotations }}
@@ -32,10 +26,13 @@ spec:
       http:
         paths:
         {{- range .paths }}
-          - path: {{ . }}
+          - path: {{ .path }}
+            pathType: {{ .pathType }}
             backend:
-              serviceName: {{ $fullName }}
-              servicePort: {{ $svcPort }}
+              service:
+                name: {{ include "gitploy.fullname" . }}
+                port:
+                  number: {{ .Values.service.port }}
         {{- end }}
   {{- end }}
 {{- end }}
