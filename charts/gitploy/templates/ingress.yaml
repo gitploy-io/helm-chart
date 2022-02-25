@@ -30,9 +30,9 @@ spec:
             pathType: {{ .pathType }}
             backend:
               service:
-                name: {{ include "gitploy.fullname" . }}
+                name: {{ include "gitploy.fullname" $ }}
                 port:
-                  number: {{ .Values.service.port }}
+                  number: {{ $.Values.service.port }}
         {{- end }}
   {{- end }}
 {{- end }}
