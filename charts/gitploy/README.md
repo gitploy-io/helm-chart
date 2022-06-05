@@ -6,7 +6,7 @@ This page is not intended to be a comprehensive guide to installing Gitploy. It 
 
 ## Configuration 
 
-In order to install the chart, you'll need to pass in additional configuration. This configuration comes in the form of Helm values, which are key/value pairs.
+To install the chart, you'll need to pass in an additional configuration. This configuration comes in the form of Helm values, which are key/value pairs.
 
 ```yaml
 env: 
@@ -35,20 +35,20 @@ Copy these into a new file, which we'll call `values.overrides.yaml`. Adjust the
 
 ## Run the installation
 
-Create the namespace to install gitploy if it does not already exist:
+Create the namespace to install Gitploy if it does not already exist:
 
 ```console
 kubectl create ns gitploy
 namespace/gitploy created
 ```
 
-Run `helm` install with your values provided:
+Run `helm` installs with your values provided:
 
 ```console
 helm install --namespace gitploy gitploy gitployio/gitploy  -f values.overrides.yaml
 ```
 
-Once the install command is ran, your Kubernetes cluster will begin creating resources. To see how your deploy is shaping up, run:
+Once the install command is run, your Kubernetes cluster will begin creating resources. To see how your deploy is shaping up, run:
 
 ```console
 $ kubectl --namespace gitploy get pods
@@ -58,7 +58,7 @@ gitploy-76d6bb8968-3d5n9               1/1     Running   0          2m
 
 ## Upgrading Gitploy
 
-Read the release notes to make sure there are no backward incompatible changes. Make adjustments to your values as needed, then run `helm upgrade`.
+Read the release notes to make sure there are no backward-incompatible changes. Make adjustments to your values as needed, then run `helm upgrade`.
 
 
 ```console
